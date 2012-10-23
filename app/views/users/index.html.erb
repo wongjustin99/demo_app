@@ -1,57 +1,79 @@
 <h1>Listing users</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<ul class="nav-bar">
+            <li class="active"><a href="#">Nav Item 1</a></li>
+            <li class="has-flyout">
+              <a href="#">Nav Item 2</a>
+              <a href="#" class="flyout-toggle"><span> </span></a>
+              <ul class="flyout">
+                <li><a href="#">Sub Nav Item 1</a></li>
+                <li><a href="#">Sub Nav Item 2</a></li>
+                <li><a href="#">Sub Nav 3</a></li>
+                <li><a href="#">Sub Nav 4</a></li>
+                <li><a href="#">Sub Nav Item 5</a></li>
+              </ul>
+            </li>
+            <li class="has-flyout">
+              <a href="#">Nav Item 3</a>
+              <a href="#" class="flyout-toggle"><span> </span></a>
+              <div class="flyout" style="display: none; ">
+                <h5>Regular Dropdown</h5>
+                <div class="row">
+                  <div class="six columns">
+                    <p>This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text.</p>
+                  </div>
+                  <div class="six columns">
+                    <p>This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text.</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="has-flyout">
+              <a href="#">Nav Item 4</a>
+              <a href="#" class="flyout-toggle"><span> </span></a>
+              <div class="flyout large right" style="display: none; ">
+                <h5>Large Dropdown</h5>
+                <div class="row">
+                  <div class="four columns">
+                    <p>This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text.</p>
+                    <p>This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text.</p>
+                  </div>
+                  <div class="four columns">
+                    <p>This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text.</p>
+                    <p>This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text.</p>
+                  </div>
+                  <div class="four columns">
+                    <img src="http://placehold.it/200x250">
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.name %></td>
-    <td><%= user.email %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<table>
+	<thead>
+		<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th></th>
+		<th></th>
+		<th></th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<% @users.each do |user| %>
+		  <tr>
+			<td><%= user.name %></td>
+			<td><%= user.email %></td>
+			<td><%= link_to 'Show', user %></td>
+			<td><%= link_to 'Edit', edit_user_path(user) %></td>
+			<td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
+		  </tr>
+		<% end %>
+	</tbody>
 </table>
 
 <br />
-
-<div class="row">
-	<div class="row display">
-		<div class="one columns">
-			<h2>Name</h2>
-		</div>
-		<div class="two columns">
-			<h2>Email</h2>
-		</div>
-	</div>
-	<% @users.each do |user| %>
-		<div class="row display">
-			<div class="one columns">
-				<%= user.name %>
-			</div>
-			<div class="two columns">
-				<%= user.email %>
-			</div>
-			<div class="one columns">
-				<%= link_to 'Show', user %>
-			</div>
-			<div class="one columns">
-				<%= link_to 'Edit', edit_user_path(user) %>
-			</div>
-			<div class="one columns">
-				<%= user.email %>
-			</div>
-		</div>
-	<% end %>
-</div>
-
-
 
 <%= link_to 'New User', new_user_path %>
