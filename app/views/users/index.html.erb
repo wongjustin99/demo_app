@@ -22,4 +22,36 @@
 
 <br />
 
+<div class="row">
+	<div class="row display">
+		<div class="one columns">
+			<h2>Name</h2>
+		</div>
+		<div class="two columns">
+			<h2>Email</h2>
+		</div>
+	</div>
+	<% @users.each do |user| %>
+		<div class="row display">
+			<div class="one columns">
+				<%= user.name %>
+			</div>
+			<div class="two columns">
+				<%= user.email %>
+			</div>
+			<div class="one columns">
+				<%= link_to 'Show', user %>
+			</div>
+			<div class="one columns">
+				<%= link_to 'Edit', edit_user_path(user) %>
+			</div>
+			<div class="one columns">
+				<%= user.email %>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+
+
 <%= link_to 'New User', new_user_path %>
